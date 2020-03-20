@@ -24,15 +24,15 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html,
+body,
+#app,
+#app > div {
+  /* Full height */
+  height: 100%;
+  background-image: url("component//Assets/images/music_background.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
