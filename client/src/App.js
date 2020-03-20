@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import Navigation from './component/Navigation';
+// import Navigation from './component/Navigation';
+import Login from './component/Login';
 
 
   class App extends Component {
@@ -10,7 +11,14 @@ import Navigation from './component/Navigation';
       return (
         <Router>
  <div className="container-fluid mainContainer">
-        <Navigation/>
+       
+       
+       <Login/>
+      
+        {/* <Navigation/> */}
+
+
+
           {/* <Switch>
             <Route exact path="/" component={Book} />
             <Route exact path="/saved" component={Book} />

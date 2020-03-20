@@ -1,0 +1,17 @@
+.jumbotron h1 {
+  font-family: "sans-serif";
+  font-size: 65px;
+  text-transform: uppercase;
+  color: #0070bf;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  font-size: 22px;
+}
+
+.navLink {
+  margin-left: 20px;
+  color: #0070bf;
+}
