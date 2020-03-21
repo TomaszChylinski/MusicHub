@@ -4,22 +4,21 @@ import "./App.css";
 import Navigation from "./component/Navigation";
 import Login from "./component/Login";
 import Home from "./component/Home";
+import Profile from "./component/Profile";
 
 class App extends Component {
   render() {
     return (
+
       <Router>
         <div className="container-fluid mainContainer">
-          {<Navigation />}
-          {<Login />}
+          <Navigation />
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/home" component={Profile} />
 
-          {<Home />}
-
-          {/* <Switch>
-            <Route exact path="/" component={Book} />
-            <Route exact path="/saved" component={Book} />
-            {/* <Route exact path="/saved" component={Saved} /> */}
-          {/* </Switch> */}
+          </Switch>
         </div>
       </Router>
     );
