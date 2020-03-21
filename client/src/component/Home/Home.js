@@ -11,7 +11,6 @@ const Home = () => (
               <i class="fa fa-user"></i> Tomasz
             </a>
           </li>
-
           <li>
             <a class="nav-link" href="#">
               <i class="fa fa-home"></i> Home
@@ -39,8 +38,14 @@ const Home = () => (
           </li>
         </ul>
       </div>
-      <div class="col-sm-8"></div>
-      <div class="col-sm-2">One of three columns</div>
+      <div class="col-sm-8">
+        <div class="d-flex p-2">I'm a flexbox container!</div>
+      </div>
+      <div class="col-sm-2">
+      Recommended
+      
+      
+      </div>
     </div>
 
     <div class="row">
