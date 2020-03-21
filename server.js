@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const mongoose = require('mongoose');
 const MONGODB_URI =
-	process.env.MONGODB_URI || 'mongodb://localhost:27017/googlebooks';
+	process.env.MONGODB_URI || 'mongodb://localhost:27017/musichub';
 mongoose
 	.connect(MONGODB_URI, { useNewUrlParser: true })
 	.then(() => {
