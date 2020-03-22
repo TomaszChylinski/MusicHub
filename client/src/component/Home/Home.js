@@ -4,7 +4,7 @@ import "./Home.css";
 const Home = () => (
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="home-col col-sm-2">
         <ul class="list-group">
           <li>
             <a class="nav-link" href="#">
@@ -38,14 +38,34 @@ const Home = () => (
           </li>
         </ul>
       </div>
-      <div class="col-sm-8">
-        <div class="d-flex p-2">I'm a flexbox container!</div>
+
+      <div class="home-col col-sm-8">
+        <div class="homeForm d-flex p-2">
+          <i class="fa fa-user"></i>
+
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="userpost" class="sr-only">
+                post
+              </label>
+              <input
+                type="post"
+                class="form-control input-sm"
+                id="addPost"
+                placeholder="Add a post"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">
+              <i class="fa fa-plus"></i>
+            </button>
+          </form>
+        </div>
+        <div class="home-timeline">
+          Timeline will go here.....
+
+        </div>
       </div>
-      <div class="col-sm-2">
-      Recommended
-      
-      
-      </div>
+      <div class="home-col col-sm-2">Recommended</div>
     </div>
 
     <div class="row">
