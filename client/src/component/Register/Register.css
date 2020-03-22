@@ -1,7 +1,4 @@
-.container {
-  color: #0070bf;
-  /* opacity: 0.2; */
-}
+
 
  input{
   border-radius: 10px;
@@ -16,11 +13,6 @@ form button{
   height: 30px;
 }
 
-.login-form {
-  float: right;
-
-}
-
 .userName {
   margin-right: 1%;
 }
@@ -28,3 +20,11 @@ form button{
 .password {
   margin-right: 1%;
 }
+
+.register-form{
+margin-top: 5%;
+border-style: groove;
+background-color: #F0F0F0;
+float: right;
+}
+  
