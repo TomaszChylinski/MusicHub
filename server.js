@@ -26,7 +26,7 @@ mongoose
 
 // Define API routes here
 
-// require('./controller/books-controller')(app);
+require('./controller/users')(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
