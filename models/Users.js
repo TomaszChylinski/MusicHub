@@ -28,7 +28,13 @@ const userSchema = new Schema(
 		password: {
 			type: String,
 			required: true
-		}
+		},
+		skills: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: 'Skills'
+			}
+		]
 	},
 	{
 		timestamps: true
