@@ -52,37 +52,29 @@ class RegisterPage extends Component {
     // but you don't need to target those (any css-selector will work)
 
     return (
-
       <div className="register-form">
         <h2>Create Account </h2>
-        <form class="form-inline">
-          <div class="form-group mb-2">
-            <label for="staticEmail2" class="sr-only">
-              Last Name
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="inputPassword2"
-              placeholder="First Name"
-            />
+        <form>
+          <div class="form-row">
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+            </div>
           </div>
-          <div class="form-group mx-sm-3 mb-2">
-            <label for="inputPassword2" class="sr-only">
-              First Name
-            </label>
-            <br/>
-            <input
-              type="password"
-              class="form-control"
-              id="inputPassword2"
-              placeholder="Last Name"
-            />
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
           </div>
-           
-          <button type="submit" class="btn btn-primary mb-2">
-            Submit
-          </button>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputCity" placeholder="State" />
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
       </div>
 

@@ -13,18 +13,16 @@ form button{
   height: 30px;
 }
 
-.userName {
-  margin-right: 1%;
-}
 
-.password {
-  margin-right: 1%;
+.form-control{
+  height: 35px;
 }
 
 .register-form{
-margin-top: 5%;
-border-style: groove;
-background-color: #F0F0F0;
-float: right;
+  margin-top: 5%;
+  background: #E8E8E8;
 }
-  
+
+.register-form button{
+margin-bottom: 4%;
+}
