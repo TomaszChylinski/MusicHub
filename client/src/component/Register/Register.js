@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Login.css";
-import RegisterPage from "../Register";
+import "./Register.css";
 
-class Login extends Component {
+
+class RegisterPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -52,43 +52,37 @@ class Login extends Component {
     // but you don't need to target those (any css-selector will work)
 
     return (
-      <div className="container">
-        <div className="login-form">
-          <form class="form-inline">
-            <div class="form-group mb-2">
-              <label for="staticEmail2" class="sr-only">
-                Email
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword2"
-                placeholder="User Name"
-              />
+      <div className="register-form">
+        <h2>Create Account </h2>
+        <form>
+          <div class="form-row">
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
             </div>
             <div class="form-group mx-sm-3 mb-2">
-              <label for="inputPassword2" class="sr-only">
-                Password
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword2"
-                placeholder="Password"
-              />
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
             </div>
-            <button type="submit" class="btn btn-primary mb-2">
-              Submit
-            </button>
-          </form>
-
-          <RegisterPage/>
-        </div>
-     
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputCity" placeholder="State" />
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
       </div>
-            
+
+
+
+
     );
   }
 }
 
-export default Login;
+export default RegisterPage;
