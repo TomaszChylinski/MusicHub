@@ -1,7 +1,4 @@
-.container {
-  color: #0070bf;
-  /* opacity: 0.2; */
-}
+
 
  input{
   border-radius: 10px;
@@ -16,15 +13,16 @@ form button{
   height: 30px;
 }
 
-.login-form {
-  float: right;
 
+.form-control{
+  height: 35px;
 }
 
-.userName {
-  margin-right: 1%;
+.register-form{
+  margin-top: 5%;
+  background: #E8E8E8;
 }
 
-.password {
-  margin-right: 1%;
+.register-form button{
+margin-bottom: 4%;
 }
