@@ -1,79 +1,129 @@
 import React from "react";
 import "./Home.css";
+import QuickLinks from '../QuickLinks';
+import * as $ from 'axios';
 
-const Home = () => (
-  <div class="container">
-    <div class="row">
-      <div class="home-col col-sm-2">
-        <ul class="list-group">
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fa fa-user"></i> Tomasz
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fa fa-home"></i> Home
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fa fa-child"></i> Profile
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="https://github.com/TomaszChylinski">
-              <i class="fa fa-github"></i> Git
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fa  fa-users"></i> People
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fa fa-address-card"></i> About Us
-            </a>
-          </li>
-        </ul>
-      </div>
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newStatus: '',
+      status: []
+    };
 
-      <div class="home-col col-sm-8">
-        <div class="homeForm d-flex p-2">
-          <i class="fa fa-user"></i>
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-          <form class="form-inline">
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="userpost" class="sr-only">
-                post
-              </label>
-              <input
-                type="post"
-                class="form-control input-sm"
-                id="addPost"
-                placeholder="Add a post"
-              />
+
+  componentDidMount() { // when mounted this will be populated and component will be rerendered 
+    $.get('/api/status')
+      .then((result) => {
+        this.setState({ status: result.data })
+        // console.log("log id", result.data.successful._id)
+        console.log("show status ", this.state.status)
+      }
+      )
+  }
+
+  // const {status} = this.state.status
+
+  handleChange(event) {
+    console.log(event.target.value);
+    this.setState({
+      newStatus: event.target.value
+    })
+  }
+
+  // handleClick = (event) => {
+
+
+  //   $.post('api/status', {status: this.state.newStatus})
+  //   .then((newStatus)=> 
+  //   console.log("results from app.js", newStatus))
+  //   this.setState({
+  //   status:[event.target.value]
+
+  //   })
+  //   console.log("show status inside of click ", this.status)
+  // }
+
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    $.post('api/status', { status: this.state.newStatus })
+      .then((response) => {
+        console.log("results from app.js NEW STATUS", response)
+        const newPost = response.data.successful;
+
+        this.setState(previousState => {
+          console.log("Show new post 2 ", newPost)
+          console.log("show previous state  ", previousState)
+          return {
+           
+            ...previousState,
+            status: [...previousState.status, newPost]
+          }
+          
+        });
+      })
+  }
+
+
+  // this.setState({
+  //   newStatus: '',
+  //   status: [...this.state.status, this.state.newStatus]
+  // });
+
+
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="home-col col-sm-2">
+            <QuickLinks />
+          </div>
+
+          <div className="home-col col-sm-8">
+            <div className="homeForm d-flex p-2">
+              <i className="fa fa-user"></i>
+
+              <form className="form-inline" onSubmit={this.onSubmit}>
+                <div className="form-group mx-sm-3 mb-2">
+                  <label for="userpost" className="sr-only">
+                    post
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control input-sm"
+                    placeholder="Add a post"
+                    value={this.state.newStatus} onChange={this.handleChange}
+                  />
+                </div>
+                {/* <button  onSubmit={this.handleClick}  className="btn btn-primary mb-2"> */}
+                <button className="btn btn-primary mb-2">
+                  <i className="fa fa-plus"></i>
+                </button>
+              </form>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">
-              <i class="fa fa-plus"></i>
-            </button>
-          </form>
-        </div>
-        <div class="home-timeline">
-          Timeline will go here.....
+            {console.log("show status in return ", this.state.status)}
 
+            <div className="home-timeline">{this.state.status.map((item) => <p key={item._id}> {item.status}  </p>)}</div>
+
+          </div>
+          <div className="home-col col-sm-2">Recommended
+
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-sm-2"></div>
+          <div className="col-sm-8"></div>
+          <div className="col-sm-2"></div>
         </div>
       </div>
-      <div class="home-col col-sm-2">Recommended</div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8"></div>
-      <div class="col-sm-2"></div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default Home;
