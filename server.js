@@ -25,10 +25,11 @@ mongoose
 	});
 
 // Define API routes here
-
-// require('./controller/users')(app);
-// require('./controller/skills')(app);
+require('./controller/discover')(app);
+require('./controller/users')(app);
+require('./controller/skills')(app);
 require('./controller/status')(app);
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get('*', (req, res) => {

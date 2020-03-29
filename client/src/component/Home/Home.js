@@ -35,20 +35,6 @@ class Home extends React.Component {
     })
   }
 
-  // handleClick = (event) => {
-
-
-  //   $.post('api/status', {status: this.state.newStatus})
-  //   .then((newStatus)=> 
-  //   console.log("results from app.js", newStatus))
-  //   this.setState({
-  //   status:[event.target.value]
-
-  //   })
-  //   console.log("show status inside of click ", this.status)
-  // }
-
-
   onSubmit = (event) => {
     event.preventDefault();
     $.post('api/status', { status: this.state.newStatus })

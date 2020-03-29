@@ -69,15 +69,16 @@ class QuickLinks extends Component {
           </a>
         </li>
         <li>
+          <a class="nav-link" href="#">
+          <i class="fa  fa-users"></i> Discover
+          </a>
+        </li>
+        <li>
           <a class="nav-link" href="https://github.com/TomaszChylinski">
             <i class="fa fa-github"></i> Git
           </a>
         </li>
-        <li>
-          <a class="nav-link" href="#">
-            <i class="fa  fa-users"></i> People
-          </a>
-        </li>
+  
         <li>
           <a class="nav-link" href="#">
             <i class="fa fa-address-card"></i> About Us
