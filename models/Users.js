@@ -1,55 +1,45 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
-const userSchema = new Schema(
-	{
-		firstName: {
-			type: String,
-			required: true
-		},
-		lastName: {
-			type: String,
-			required: true
-		},
-		userName: {
-			type: String,
-			required: true,
-			trim: true,
-			unique: true
-		},
-		email: {
-			type: String,
-			required: true,
-			lowercase: true,
-			trim: true,
-			unique: true
-		},
-		password: {
-			type: String,
-			required: true
-		}
-	},
-	{
-		timestamps: true
-	}
-);
+const UsersSchema = new Schema({
+	firstname: String,
+	lastname: String,
+	email: String,
+	hash: String,
+	salt: String,
+  });
 
-userSchema.pre('save', function(next) {
-	if (!this.isModified('password')) {
-		return next();
-	}
-
-	bcrypt.genSalt(10, (err, salt) => {
-		if (err) return next(err);
-
-		bcrypt.hash(this.password, salt, (err, hash) => {
-			if (err) return next(err);
-
-			this.password = hash;
-			next();
-		});
-	});
-});
+UsersSchema.methods.setPassword = function(password) {
+	this.salt = crypto.randomBytes(16).toString('hex');
+	this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+  };
+  
+UsersSchema.methods.validatePassword = function(password) {
+	const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+	return this.hash === hash;
+  };
+  
+UsersSchema.methods.generateJWT = function() {
+	const today = new Date();
+	const expirationDate = new Date(today);
+	expirationDate.setDate(today.getDate() + 60);
+  
+	return jwt.sign({
+	  email: this.email,
+	  id: this._id,
+	  exp: parseInt(expirationDate.getTime() / 1000, 10),
+	}, 'secret');
+  }
+  
+UsersSchema.methods.toAuthJSON = function() {
+return {
+	  _id: this._id,
+	  email: this.email,
+	  token: this.generateJWT(),
+	};
+  };
 
 module.exports = mongoose.model('Users', userSchema);
