@@ -1,10 +1,16 @@
 // require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
-const session = require('express-session');
-const passport = require('./config/passport');
+
+//Passport Config
+require('./config/passport')(passport);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -22,9 +28,18 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-// require('./config/passport');
 
-const mongoose = require('mongoose');
+//Connect Flash
+app.use(flash());
+
+//Global Variables
+app.use(function(req, res, next) {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	next();
+});
+
 const MONGODB_URI =
 	process.env.MONGODB_URI || 'mongodb://localhost:27017/musichub';
 mongoose
@@ -38,7 +53,8 @@ mongoose
 
 // Define API routes here
 
-require('./controller/users')(app);
+app.use('/', require('./controller/index.js'));
+app.use('/users', require('./controller/users'));
 require('./controller/skills')(app);
 // Send every other request to the React app
 // Define any API routes before this runs
