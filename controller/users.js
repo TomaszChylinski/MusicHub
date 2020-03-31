@@ -3,7 +3,7 @@ const db = require('../models/');
 
 module.exports = function(app) {
 	app.get('/api/users', (req, res) => {
-		db.User.find()
+		db.Users.find()
 			.then(data => {
 				res.json(data);
 			})
@@ -13,7 +13,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/api/users', (req, res) => {
-		db.User.create(req.body)
+		db.Users.create(req.body)
 			.then(response => {
 				// redirect to login or home or whatever....
 			})
@@ -29,7 +29,7 @@ module.exports = function(app) {
 	});
 
 	app.delete('/api/users/:id', (req, res) => {
-		db.User.findByIdAndDelete(req.params.id)
+		db.Users.findByIdAndDelete(req.params.id)
 			.then(response => {
 				res.json({ successful: response });
 			})
