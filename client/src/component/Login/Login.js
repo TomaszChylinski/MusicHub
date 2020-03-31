@@ -10,7 +10,8 @@ class Login extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			error: ''
+			error: '',
+			isLoggedIn: false
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
