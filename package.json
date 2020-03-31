@@ -12,8 +12,6 @@
 		"build": "cd client && npm run build",
 		"seed": "node scripts/seedDB.js",
 		"discoverSeed": "node scripts/discoverSeed.js"
-
-		
 	},
 	"repository": {
 		"type": "git",
@@ -28,10 +26,13 @@
 	"dependencies": {
 		"axios": "^0.19.2",
 		"bcryptjs": "^2.4.3",
+		"cheerio": "^1.0.0-rc.3",
+		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"if-env": "^1.0.4",
 		"mongodb": "^3.5.5",
 		"mongoose": "^5.9.5",
+		"morgan": "^1.10.0",
 		"react-router-dom": "^5.1.2"
 	},
 	"devDependencies": {

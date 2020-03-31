@@ -28,6 +28,14 @@ const userSchema = new Schema(
 		password: {
 			type: String,
 			required: true
+		},
+		friendStatus:{
+			type:Boolean,
+			required: false
+		},
+		image:{
+			type:String,
+			require: false
 		}
 	},
 	{

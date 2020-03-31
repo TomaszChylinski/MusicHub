@@ -6,28 +6,26 @@ class discover extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newStatus: '',
-      status: [],
+      users: [],
     };
 
 
   }
 
-
   componentDidMount() { // when mounted this will be populated and component will be rerendered 
-    $.get('/api/discover')
+    $.get('http://localhost:3001/users')
       .then((result) => {
-        this.setState({ status: result })
+        this.setState({ users: result })
         // console.log("log id", result.data.successful._id)
-        console.log("show status ", this.state.status)
+        console.log("show status ", result)
       }
       )
   }
 
-  handleClick() {
-    console.log('this is:', this);
-    $(this).attr("disabled", true);
-  }
+  // handleClick() {
+  //   console.log('this is:', this);
+  //   $(this).attr("disabled", true);
+  // }
 
 
 
@@ -37,12 +35,12 @@ class discover extends React.Component {
 
 
 
-<div class="row">
-  <div class="col-sm-12">
+<div className="row">
+  <div className="col-sm-12">
       Find Friends
   </div>
 </div>
-<hr class="hr-line"></hr>
+<hr className="hr-line"></hr>
 
 
 <div className="row">
@@ -61,7 +59,7 @@ class discover extends React.Component {
        <img className="card-img-top" src="https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Card image cap"/>
         <p className="card-text">Tamara Wilson</p>
         <a href="#" onclick="disableFR()"
-         class="btn btn-primary">Friend Request</a>
+         className="btn btn-primary">Friend Request</a>
       </div>
     </div>
   </div>
@@ -70,7 +68,7 @@ class discover extends React.Component {
       <div className="card-body">
        <img className="card-img-top" src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Card image cap"/>
         <p className="card-text">Samatha Perkins</p>
-        <a href="#"  onclick="disableFR()" class="btn btn-primary">Friend Request</a>
+        <a href="#"  onclick="disableFR()" className="btn btn-primary">Friend Request</a>
       </div>
     </div>
   </div>
@@ -79,7 +77,7 @@ class discover extends React.Component {
       <div className="card-body">
        <img className="card-img-top" src="https://images.pexels.com/photos/1125028/pexels-photo-1125028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Card image cap"/>
         <p className="card-text">Kevin Lee</p>
-        <a href="#"  onclick="disableFR()" class="btn btn-primary">Friend Request</a>
+        <a href="#"  onclick="disableFR()" className="btn btn-primary">Friend Request</a>
       </div>
     </div>
   </div>

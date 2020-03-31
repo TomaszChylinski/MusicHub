@@ -7,6 +7,14 @@ const discoverSchema = new Schema({
 	},
 	lastName: {
 		type: String,
+	},
+
+	friendStatus: {
+		type: Boolean,
+	},
+
+	image:{
+		type: String,
 	}
 });
 

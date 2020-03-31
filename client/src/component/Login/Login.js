@@ -54,30 +54,30 @@ class Login extends Component {
     return (
       <div className="container">
         <div className="login-form">
-          <form class="form-inline">
-            <div class="form-group mb-2">
-              <label for="staticEmail2" class="sr-only">
+          <form className="form-inline">
+            <div className="form-group mb-2">
+              <label for="staticEmail2" className="sr-only">
                 Email
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputPassword2"
                 placeholder="User Name"
               />
             </div>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="inputPassword2" class="sr-only">
+            <div className="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" className="sr-only">
                 Password
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputPassword2"
                 placeholder="Password"
               />
             </div>
-            <button type="submit" class="btn btn-primary mb-2">
+            <button type="submit" className="btn btn-primary mb-2">
               Submit
             </button>
           </form>

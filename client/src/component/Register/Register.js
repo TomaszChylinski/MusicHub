@@ -55,26 +55,26 @@ class RegisterPage extends Component {
       <div className="register-form">
         <h2>Create Account </h2>
         <form>
-          <div class="form-row">
-            <div class="form-group mx-sm-3 mb-2">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+          <div className="form-row">
+            <div className="form-group mx-sm-3 mb-2">
+              <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
             </div>
-            <div class="form-group mx-sm-3 mb-2">
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control" id="inputCity" placeholder="State" />
-            </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" />
+            <div className="form-group mx-sm-3 mb-2">
+              <input type="password" className="form-control" id="inputPassword4" placeholder="Password" />
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <div className="form-group">
+            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+          </div>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <input type="text" className="form-control" id="inputCity" placeholder="State" />
+            </div>
+            <div className="form-group col-md-3">
+              <input type="text" className="form-control" id="inputZip" placeholder="Zip Code" />
+            </div>
+          </div>
+          <button type="submit" className="btn btn-primary">Sign in</button>
         </form>
       </div>
 
