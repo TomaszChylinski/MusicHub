@@ -1,4 +1,5 @@
 module.exports = {
-	User: require('./Users'),
-	Skill: require('./Skills')
+	Users: require('./Users'),
+	Skills: require('./Skills'),
+	newSkill: require('./UserSkills')
 };
