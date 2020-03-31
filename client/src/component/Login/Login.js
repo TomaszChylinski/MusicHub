@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-// import RegisterPage from '../Register';
+import axios from 'axios';
 
 class Login extends Component {
 	constructor() {
@@ -24,15 +24,30 @@ class Login extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
-		if (!this.state.username) {
-			return this.setState({ error: 'Username is required' });
+		if (!this.state.email) {
+			return this.setState({ error: 'Email is required' });
 		}
 
 		if (!this.state.password) {
 			return this.setState({ error: 'Password is required' });
 		}
 
-		return this.setState({ error: '' });
+		this.setState({ error: '' });
+
+		const data = {
+			email: this.state.email,
+			password: this.state.password
+		};
+
+		axios({
+			method: 'post',
+			url: 'http://localhost:3001/api/login',
+			data
+		}).then(res => {
+			// handle unautorized response
+			// redirect to home/main whatever
+			res.redirect('/home');
+		});
 	}
 
 	handleUserChange(evt) {
@@ -54,7 +69,7 @@ class Login extends Component {
 		return (
 			<div className="container">
 				<div className="login-form">
-					<form class="form-inline" action="/login" method="POST">
+					<form onSubmit={this.handleSubmit}>
 						<div class="form-group mb-2">
 							<label for="staticEmail2" class="sr-only">
 								Email
@@ -64,6 +79,8 @@ class Login extends Component {
 								class="form-control"
 								id="inputPassword2"
 								placeholder="Email"
+								name="email"
+								onChange={this.handleInputChange}
 							/>
 						</div>
 						<div class="form-group mx-sm-3 mb-2">
@@ -75,6 +92,8 @@ class Login extends Component {
 								class="form-control"
 								id="inputPassword2"
 								placeholder="Password"
+								name="password"
+								onChange={this.handleInputChange}
 							/>
 						</div>
 						<button type="submit" class="btn btn-primary mb-2">

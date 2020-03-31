@@ -2,17 +2,20 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const passport = require('passport');
+const passport = require('./config/passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3001;
-const app = express();
 
 //Passport Config
-require('./config/passport')(passport);
+// require('./config/passport')(passport);
 
 // Define middleware here
+const app = express();
+
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
@@ -53,8 +56,7 @@ mongoose
 
 // Define API routes here
 
-app.use('/', require('./controller/index.js'));
-app.use('/users', require('./controller/users'));
+require('./controller/users')(app);
 require('./controller/skills')(app);
 // Send every other request to the React app
 // Define any API routes before this runs

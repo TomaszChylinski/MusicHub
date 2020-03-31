@@ -41,43 +41,11 @@ module.exports = function(router) {
 	// 	res.json(req.user);
 	// });
 
-	router.post(
-		'/login',
-		passport.authenticate('local'),
-		function(req, res) {
-			res.json(req.user);
-		}
-		// function(req, res, next) {
-		// 	// call passport authentication passing the "local" strategy name and a callback function
-		// 	passport.authenticate('local', function(error, user, info) {
-		// 		// this will execute in any case, even if a passport strategy will find an error
-		// 		// log everything to console
-		// 		console.log(error);
-		// 		console.log(user);
-		// 		console.log(info);
+	router.post('/api/login', passport.authenticate('local'), function(req, res) {
+		console.log(req.user);
 
-		// 		if (error) {
-		// 			res.status(401).send(error);
-		// 		} else if (!user) {
-		// 			res.status(401).send(info);
-		// 		} else {
-		// 			next();
-		// 		}
-
-		// 		res.status(401).send(info);
-		// 	})(req, res);
-		// }
-		// {
-		// 	successRedirect: '/home',
-		// 	failureRedirect: '/login',
-		// 	failureFlash: true
-		// }
-
-		// function to call once successfully authenticated
-		// function(req, res) {
-		// 	res.status(200).send('logged in!');
-		// }
-	);
+		res.json(req.user);
+	});
 
 	router.delete('/api/users/:id', (req, res) => {
 		db.users
