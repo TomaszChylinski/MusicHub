@@ -1,16 +1,34 @@
-// require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const PORT = process.env.PORT || 3001;
-const app = express();
+// Requiring necessary npm packages
+var express = require('express');
+var session = require('express-session');
+// Requiring passport as we've configured it
+var passport = require('./config/passport');
+var cors = require('cors');
 
-// Define middleware here
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 3001;
+var db = require('./models');
+
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
+} else {
+	app.use(express.static('public'));
 }
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+	session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 const mongoose = require('mongoose');
 const MONGODB_URI =
@@ -24,13 +42,16 @@ mongoose
 		console.log(`Error connecting to mongoDB: ${err}`);
 	});
 
-// Define API routes here
 
-// require('./controller/users')(app);
-// require('./controller/skills')(app);
+// Requiring our routes
+require('./controller/users')(app);
+require('./controller/skills')(app);
+require('./controller/user-skills')(app);
+
 require('./controller/status')(app);
 // Send every other request to the React app
 // Define any API routes before this runs
+
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, './client/build/index.html'));
 });

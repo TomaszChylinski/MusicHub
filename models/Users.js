@@ -12,7 +12,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true
 		},
-		userName: {
+		username: {
 			type: String,
 			required: true,
 			trim: true,
@@ -28,7 +28,13 @@ const userSchema = new Schema(
 		password: {
 			type: String,
 			required: true
-		}
+		},
+		skills: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: 'Skills'
+			}
+		]
 	},
 	{
 		timestamps: true

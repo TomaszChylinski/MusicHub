@@ -1,49 +1,61 @@
-import React, { Component } from "react";
-import "./Register.css";
+import './Register.css';
 
+import React, { Component } from 'react';
+
+import axios from 'axios';
 
 class RegisterPage extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      password: "",
-      error: ""
+      username: '',
+      password: '',
+      error: '',
     };
 
-    this.handlePassChange = this.handlePassChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.dismissError = this.dismissError.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   dismissError() {
-    this.setState({ error: "" });
+    this.setState({ error: '' });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
 
     if (!this.state.username) {
-      return this.setState({ error: "Username is required" });
+      return this.setState({ error: 'Username is required' });
     }
 
     if (!this.state.password) {
-      return this.setState({ error: "Password is required" });
+      return this.setState({ error: 'Password is required' });
     }
 
-    return this.setState({ error: "" });
-  }
+    this.setState({ error: '' });
 
-  handleUserChange(evt) {
-    this.setState({
-      username: evt.target.value
+    const data = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    // api call
+    axios({
+      method: 'post',
+      url: 'http://localhost:3001/api/users',
+      data,
+    }).then(res => {
+      console.log(res);
     });
   }
 
-  handlePassChange(evt) {
+  handleInputChange(evt) {
     this.setState({
-      password: evt.target.value
+      [evt.target.name]: evt.target.value,
     });
   }
 
@@ -54,33 +66,76 @@ class RegisterPage extends Component {
     return (
       <div className="register-form">
         <h2>Create Account </h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div class="form-row">
             <div class="form-group mx-sm-3 mb-2">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputEmail4"
+                placeholder="First Name"
+                name="firstName"
+                onChange={this.handleInputChange}
+              />
             </div>
             <div class="form-group mx-sm-3 mb-2">
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Last Name"
+                name="lastName"
+                onChange={this.handleInputChange}
+              />
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Create a username"
+              name="username"
+              onChange={this.handleInputChange}
+            />
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <input type="text" class="form-control" id="inputCity" placeholder="State" />
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                placeholder="Email"
+                name="email"
+                onChange={this.handleInputChange}
+              />
             </div>
             <div class="form-group col-md-3">
-              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" />
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Create a password"
+                name="password"
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword5"
+                placeholder="Re-enter password"
+                name="password2"
+                onChange={this.handleInputChange}
+              />
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-primary">
+            Register
+          </button>
         </form>
       </div>
-
-
-
-
     );
   }
 }
