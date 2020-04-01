@@ -65,22 +65,9 @@ app.get("/news", function (req, res) {
 
 
 			newsScraped.push(result);
-			// // Create a new Article using the `result` object built from scraping
-			// db.news.create(result)
-			// 	.then(function (dbNews) {
-			// 		// View the added result in the console
-			// 		console.log('show me the new article', dbNews);
-			// 	})
-			// 	.catch(function (err) {
-			// 		// If an error occurred, log it
-			// 		console.log(err);
-			// 	});
 		});
 
 		res.json(newsScraped)
-
-		// Send a message to the client
-		//   res.send("Your scrape had been successfully completed ");
 	
 	});
 });

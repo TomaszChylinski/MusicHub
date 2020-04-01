@@ -23,30 +23,22 @@ class MusicNews extends React.Component {
 
   renderTableData() {
     return this.state.news.map((news, index) => {
-      const {title, link, image } = news; //destructuring
+      const { title, link, image } = news; //destructuring
       return (
-
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src={image}
-                  alt="Card image cap"
-                />
-                <p className="card-text">{this.state.title}</p>
-                <a href={link} className="btn btn-primary">
-                  {title}
-                </a>
-              </div>
+        <div className="col-sm-6">
+          <div className="card">
+            <div className="card-body">
+              <img className="card-img-top" src={image} alt="Card image cap" />
+              <p className="card-text">{this.state.title}</p>
+              <a href={link} className="btn btn-primary">
+                {title}
+              </a>
             </div>
           </div>
-      
+        </div>
       );
     });
   }
-
-  // <div className="home-timeline">{this.state.status.map((item) => <p key={item._id}> {item.status}  </p>)}</div>
 
   render() {
     return (
@@ -56,11 +48,7 @@ class MusicNews extends React.Component {
         </div>
         <hr className="hr-line"></hr>
 
-
-
-        <div className="row">
-            {this.renderTableData()}
-        </div>
+        <div className="row">{this.renderTableData()}</div>
       </div>
     );
   }
