@@ -57,7 +57,7 @@ class QuickLinks extends Component {
         <ul className="list-group">
         <li>
           <a className="nav-link" href="#">
-            <i className="fa fa-user"></i> Tomasz
+            <i className="fa fa-user"></i> Branford
           </a>
         </li>
         <li>
