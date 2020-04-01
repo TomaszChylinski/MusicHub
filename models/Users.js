@@ -29,12 +29,23 @@ const userSchema = new Schema(
 			type: String,
 			required: true
 		},
+
+		friendStatus:{
+			type:Boolean,
+			required: false
+		},
+		image:{
+			type:String,
+			require: false
+		}
+
 		skills: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: 'Skills'
 			}
 		]
+
 	},
 	{
 		timestamps: true

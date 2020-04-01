@@ -21,7 +21,6 @@ class Home extends React.Component {
       .then((result) => {
         this.setState({ status: result.data })
         // console.log("log id", result.data.successful._id)
-        console.log("show status ", this.state.status)
       }
       )
   }
@@ -34,20 +33,6 @@ class Home extends React.Component {
       newStatus: event.target.value
     })
   }
-
-  // handleClick = (event) => {
-
-
-  //   $.post('api/status', {status: this.state.newStatus})
-  //   .then((newStatus)=> 
-  //   console.log("results from app.js", newStatus))
-  //   this.setState({
-  //   status:[event.target.value]
-
-  //   })
-  //   console.log("show status inside of click ", this.status)
-  // }
-
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -100,7 +85,6 @@ class Home extends React.Component {
                     value={this.state.newStatus} onChange={this.handleChange}
                   />
                 </div>
-                {/* <button  onSubmit={this.handleClick}  className="btn btn-primary mb-2"> */}
                 <button className="btn btn-primary mb-2">
                   <i className="fa fa-plus"></i>
                 </button>

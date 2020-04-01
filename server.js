@@ -1,18 +1,28 @@
-// Requiring necessary npm packages
-var express = require('express');
+
+// require('dotenv').config();
+const express = require('express');
 var session = require('express-session');
+const path = require('path');
+const PORT = process.env.PORT || 3001;
+const logger = require("morgan");
+var axios = require("axios");
+var cheerio = require("cheerio");
+
 // Requiring passport as we've configured it
 var passport = require('./config/passport');
-var cors = require('cors');
 
-// Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 3001;
-var db = require('./models');
+const cors = require('cors');
 
-// Creating express app and configuring middleware needed for authentication
-var app = express();
-
+const app = express();
 app.use(cors());
+
+
+var db = require("./models")
+// Define middleware here
+
+// Use morgan logger for logging requests
+app.use(logger("dev"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -43,12 +53,48 @@ mongoose
 	});
 
 
-// Requiring our routes
+// Define API routes here
+require('./controller/discover')(app);
 require('./controller/users')(app);
 require('./controller/skills')(app);
 require('./controller/user-skills')(app);
 
+
 require('./controller/status')(app);
+require('./controller/musicnews')(app);
+
+
+// $('#scrapeArticlesButton').on("click", function(event) {
+app.get("/news", function (req, res) {
+	console.log("IAM HERE ")
+	// First, we grab the body of the html with axios
+	axios.get("https://www.billboard.com/news").then(function (response) {
+		// Then, we load that into cheerio and save it to $ for a shorthand selector
+		var $ = cheerio.load(response.data);
+
+		var newsScraped = [];
+		$("h3.content-title").each(function (i, element) {
+			// Save an empty result object
+			var result = {};
+
+			// Add the text and href of every link, and save them as properties of the result object
+			result.title = $(this).text();
+			// working in the broswer having issue in the running - result.summary =  $(this).nextElementSibling.innerText;
+			result.link = $(this).children().attr("href");
+
+			result.image = $(this).parent().parent().find(".image-container img").attr("src");
+
+
+			newsScraped.push(result);
+		});
+
+		res.json(newsScraped)
+	
+	});
+});
+
+
+
 // Send every other request to the React app
 // Define any API routes before this runs
 

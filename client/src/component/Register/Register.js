@@ -66,6 +66,7 @@ class RegisterPage extends Component {
     return (
       <div className="register-form">
         <h2>Create Account </h2>
+
         <form onSubmit={this.handleSubmit}>
           <div class="form-row">
             <div class="form-group mx-sm-3 mb-2">
@@ -134,6 +135,7 @@ class RegisterPage extends Component {
           <button type="submit" class="btn btn-primary">
             Register
           </button>
+
         </form>
       </div>
     );

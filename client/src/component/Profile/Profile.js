@@ -3,8 +3,8 @@ import "./Profile.css";
 
 const Profile = () => (
   
-  <div class="container">
-    <div class="row">
+  <div className="container">
+    <div className="row">
  
         <h1>
           Profile Page

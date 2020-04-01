@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -52,35 +54,38 @@ class QuickLinks extends Component {
     // but you don't need to target those (any css-selector will work)
 
     return (
-        <ul class="list-group">
+        <ul className="list-group">
         <li>
-          <a class="nav-link" href="#">
-            <i class="fa fa-user"></i> Tomasz
+          <a className="nav-link" href="#">
+            <i className="fa fa-user"></i> Tomasz
           </a>
         </li>
         <li>
-          <a class="nav-link" href="#">
-            <i class="fa fa-home"></i> Home
+          <a className="nav-link" href="#">
+            <i className="fa fa-home"></i> Home
           </a>
         </li>
         <li>
-          <a class="nav-link" href="#">
-            <i class="fa fa-child"></i> Profile
+          <a className="nav-link" href="#">
+            <i className="fa fa-child"></i> Profile
           </a>
         </li>
         <li>
-          <a class="nav-link" href="https://github.com/TomaszChylinski">
-            <i class="fa fa-github"></i> Git
+          <a className="nav-link" href="#">
+          <i className="fa  fa-users"></i> Discover
           </a>
         </li>
         <li>
-          <a class="nav-link" href="#">
-            <i class="fa  fa-users"></i> People
+
+          
+          <a to="/News" id="scrapeArticlesButton" className="nav-link">
+            <i className="fa fa-github"></i> News
           </a>
         </li>
+  
         <li>
-          <a class="nav-link" href="#">
-            <i class="fa fa-address-card"></i> About Us
+          <a className="nav-link" href="#">
+            <i className="fa fa-address-card"></i> About Us
           </a>
         </li>
       </ul>
