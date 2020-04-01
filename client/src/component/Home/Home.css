@@ -1,3 +1,20 @@
+
+.userIcon{
+  margin-left: 20px;
+}
+
+.postInput{
+  margin-left: 10px;
+}
+.addPostBtn{
+  margin-left: 10px;
+
+  background-color: lightgray;
+}
+
+
+
+
 .container {
   background-color: white;
 
@@ -9,6 +26,9 @@ ul {
 
 .homeForm{
     border-style: groove;
+    margin-right: -15px;
+
+
   
 }
 
@@ -20,4 +40,14 @@ ul {
 .home-timeline{
 border-style: groove;
 margin-top: 4%;
+}
+
+
+.postedStatus{
+  background-color: lightgray;
+  color: #232f3e ;
+  font-weight: bold;
+  margin: 2%;
+  border-style: solid;
+  text-align: center;
 }
