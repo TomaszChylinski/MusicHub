@@ -66,7 +66,7 @@ class Home extends React.Component {
                   <li className="postInput">
                     <input
                       type="text"
-                      className="postInput form-control input-large"
+                      className=" form-control input-large"
                       placeholder="Add a post"
                       value={this.state.newStatus}
                       onChange={this.handleChange}
@@ -91,8 +91,8 @@ class Home extends React.Component {
               ))}
             </div>
           </div>
-
-          <div className="home-col col-sm-2">Recommended</div>
+{/* 
+          <div className="home-col col-sm-2">Recommended</div> */}
         </div>
 
         <div className="row">

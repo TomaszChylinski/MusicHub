@@ -26,16 +26,7 @@ const discoverSeed = [
     image:
       "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
   },
-  {
-    firstName: "Adrian",
-    lastName: "Zygo",
-    username: "Adrain",
-    email: "adrain@yahoo.com",
-    password: "12345",
-    friendStatus: false,
-    image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-  },
+
   {
     firstName: "Jeff",
     lastName: "Miller",

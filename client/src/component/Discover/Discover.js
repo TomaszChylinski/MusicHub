@@ -24,18 +24,24 @@ class discover extends React.Component {
     return this.state.users.map((item, index) => {
       const { firstName, lastName, image, friendStatus } = item; //destructuring
       return (
-        <div className="col-sm-5">
-          <div className="card">
-            <div className="card-body">
-              <img className="card-img-top" src={image} alt="Card image cap" />
-              <p className="card-text">
-                {firstName} {lastName}
-              </p>
-              <a href="#" className="btn btn-primary">
-                Friend Request
-              </a>
-            </div>
+        <div class="col-md-4 port-imgs">
+          <img src={image} />
+        
+        
+          <div
+            className="artistName"
+          >
+            {`${firstName}  ${lastName}`}
           </div>
+
+
+
+          <div className="artistName">
+            <button className="">Follow</button>
+          </div>
+
+
+
         </div>
       );
     });
@@ -43,13 +49,20 @@ class discover extends React.Component {
 
   render() {
     return (
+
       <div className="container">
         <div className="row">
-          <div className="home-col col-sm-2">
+          <div className="newsTitle col-sm-12">
+            Stay up to date with MusicHub
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-sm-2">
             <QuickLinks />
           </div>
-          <div className="col-sm-10">Find Friends</div>
-        {this.renderNewFriends()}
+
+          {this.renderNewFriends()}
         </div>
       </div>
     );

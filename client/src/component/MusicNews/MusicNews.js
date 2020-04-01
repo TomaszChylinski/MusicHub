@@ -36,12 +36,16 @@ class MusicNews extends React.Component {
         //     </div>
         //   </div>
         // </div>
- 
+
         <div class="col-md-4 port-imgs">
           <a target="_blank" href={`https://www.billboard.com${link}`}>
-            <img  src={image} />
-            <div className="articleTitle
-            ">{title}</div>
+            <img src={image} />
+            <div
+              className="articleTitle
+            "
+            >
+              {title}
+            </div>
           </a>
         </div>
       );
@@ -52,19 +56,18 @@ class MusicNews extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="newsTitle col-sm-12">Stay up to date with MusicHub</div>
+          <div className="newsTitle col-sm-12">
+            Stay up to date with MusicHub
+          </div>
         </div>
 
         <div className="row">
-          <div className="col-sm-2"><QuickLinks/></div>
-  
+          <div className="col-sm-2">
+            <QuickLinks />
+          </div>
 
-
-    {this.renderTableData()}
-
-    
-
-      </div>
+          {this.renderTableData()}
+        </div>
       </div>
     );
   }

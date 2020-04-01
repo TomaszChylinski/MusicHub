@@ -1,4 +1,8 @@
 
+.logo{
+  color: white;
+}
+
 .page-header {
   padding-top: 20px;
   padding-bottom: 5px;
@@ -23,7 +27,7 @@ nav {
   height: 10%;
 }
 
-nav span {
+nav a {
   position: relative;
   margin-top: 0;
   height: 100%;
@@ -35,7 +39,7 @@ nav a {
   float: right;
 }
 
-span {
+a {
   color: white;
 }
 nav a:hover {
