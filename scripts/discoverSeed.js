@@ -6,6 +6,7 @@ mongoose.connect(
 );
 
 const discoverSeed = [
+
 	{
 		firstName: 'Aaron',
 		lastName: 'Wilson',
@@ -162,3 +163,4 @@ db.insertMany(discoverSeed)
 		console.error(err);
 		process.exit(1);
 	});
+

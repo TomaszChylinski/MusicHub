@@ -19,7 +19,6 @@ class Home extends React.Component {
     // when mounted this will be populated and component will be rerendered
     $.get("/api/status").then(result => {
       this.setState({ status: result.data });
-      // console.log("log id", result.data.successful._id)
     });
   }
 
@@ -59,35 +58,41 @@ class Home extends React.Component {
 
           <div className="home-col col-sm-8">
             <div className="homeForm d-flex p-2">
-              <i className="fa fa-user"></i>
-
               <form className="form-inline" onSubmit={this.onSubmit}>
-                <div className="form-group mx-sm-3 mb-2">
-                  <label for="userpost" className="sr-only">
-                    post
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control input-sm"
-                    placeholder="Add a post"
-                    value={this.state.newStatus}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <button className="btn btn-primary mb-2">
-                  <i className="fa fa-plus"></i>
-                </button>
+                <ul>
+                  <li className="userIcon">
+                    <i className="fa fa-user"></i>
+                  </li>
+                  <li className="postInput">
+                    <input
+                      type="text"
+                      className=" form-control input-large"
+                      placeholder="Add a post"
+                      value={this.state.newStatus}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+
+                  <li className="">
+    
+                <button className="homeBtn">+</button>
+                  </li>
+                </ul>
               </form>
             </div>
-            {console.log("show status in return ", this.state.status)}
+            {/* {console.log("show status in return ", this.state.status)} */}
 
             <div className="home-timeline">
               {this.state.status.map(item => (
-                <p key={item._id}> {item.status} </p>
+                <p className="postedStatus" key={item._id}>
+                  {" "}
+                  {item.status}{" "}
+                </p>
               ))}
             </div>
           </div>
-          <div className="home-col col-sm-2">Recommended</div>
+{/* 
+          <div className="home-col col-sm-2">Recommended</div> */}
         </div>
 
         <div className="row">

@@ -1,23 +1,50 @@
+.userIcon {
+  margin-left: 20px;
+}
+
+.postInput {
+  margin-left: 10px;
+  width: 450px;
+}
+.addPostBtn {
+  margin-left: 10px;
+
+  background-color: lightgray;
+}
+
+.homeBtn {
+  width: 50px;
+  font-family: bold;
+  background-color: #232f3e;
+  color: white;
+  border-radius: 4px;
+}
+
 .container {
   background-color: white;
-
 }
 ul {
   list-style-type: none;
 }
 
-
-.homeForm{
-    border-style: groove;
-  
+.homeForm {
+  border-style: groove;
 }
 
-.home-col{
-    margin-top: 2%;
+.home-col {
+  margin-top: 2%;
 }
 
+.home-timeline {
+  border-style: groove;
+  margin-top: 4%;
+}
 
-.home-timeline{
-border-style: groove;
-margin-top: 4%;
+.postedStatus {
+  background-color: lightgray;
+  color: #232f3e;
+  font-weight: bold;
+  margin: 2%;
+  border-style: solid;
+  text-align: center;
 }
