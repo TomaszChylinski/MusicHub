@@ -1,4 +1,4 @@
-const db = require('../models/');
+const db = require('../models');
 
 module.exports = function(router) {
 	router.post('/api/skillset', (req, res) => {

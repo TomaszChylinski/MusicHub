@@ -1,5 +1,5 @@
 const passport = require('passport');
-const db = require('../models/');
+const db = require('../models');
 
 module.exports = function(router) {
 	router.get('/api/users', (req, res) => {

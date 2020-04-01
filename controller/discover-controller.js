@@ -1,12 +1,12 @@
 var express = require('express');
 
-var db = require('../models/');
+var db = require('../models');
 
- var router = express.Router();
+var router = express.Router();
 
 module.exports = function(router) {
-	router.get('/api/news', (req, res) => {
-		db.news
+	router.get('/api/discover', (req, res) => {
+		db.discover
 			.find()
 			.then(data => {
 				res.json(data);
@@ -16,8 +16,8 @@ module.exports = function(router) {
 			});
 	});
 
-	router.post('/api/news', (req, res) => {
-		db.news
+	router.post('/api/discover', (req, res) => {
+		db.discover
 			.create(req.body)
 			.then(response => {
 				res.json({ successful: response });
@@ -27,8 +27,8 @@ module.exports = function(router) {
 			});
 	});
 
-	router.delete('/api/news/:id', (req, res) => {
-		db.news
+	router.delete('/api/discover/:id', (req, res) => {
+		db.discover
 			.findByIdAndDelete(req.params.id)
 			.then(response => {
 				res.json({ successful: response });

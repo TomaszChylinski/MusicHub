@@ -1,6 +1,9 @@
 import './Login.css';
+import Home from '../Home';
 
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Route } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -11,7 +14,8 @@ class Login extends Component {
 			username: '',
 			password: '',
 			error: '',
-			isLoggedIn: false
+			isLoggedIn: false,
+			redirectTo: null
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,13 +30,11 @@ class Login extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
-		if (!this.state.email) {
-			return this.setState({ error: 'Email is required' });
-		}
-
-		if (!this.state.password) {
-			return this.setState({ error: 'Password is required' });
-		}
+		// if (this.state.isLoggedIn) {
+		// 	this.setState({
+		// 		redirectTo: 'http://localhost:3000/home'
+		// 	});
+		// }
 
 		this.setState({ error: '' });
 
@@ -49,6 +51,7 @@ class Login extends Component {
 		}).then(res => {
 			// handle unautorized response
 			// redirect to home/main whatever
+			this.setState({ isLoggedIn: true });
 		});
 	}
 
@@ -61,46 +64,49 @@ class Login extends Component {
 	render() {
 		// NOTE: I use data-attributes for easier E2E testing
 		// but you don't need to target those (any css-selector will work)
+		if (this.state.isLoggedIn) {
+			return <Redirect to={{ pathname: '/home' }} />;
+		} else {
+			return (
+				<div className="container">
+					<div className="login-form">
+						<form onSubmit={this.handleSubmit}>
+							<div class="form-group mb-2">
+								<label for="staticEmail2" class="sr-only">
+									Email
+								</label>
+								<input
+									type="email"
+									class="form-control"
+									id="inputPassword2"
+									placeholder="Email"
+									name="email"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label for="inputPassword2" class="sr-only">
+									Password
+								</label>
+								<input
+									type="password"
+									class="form-control"
+									id="inputPassword2"
+									placeholder="Password"
+									name="password"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+							<button href type="submit" class="btn btn-primary mb-2">
+								Submit
+							</button>
+						</form>
 
-		return (
-			<div className="container">
-				<div className="login-form">
-					<form onSubmit={this.handleSubmit}>
-						<div class="form-group mb-2">
-							<label for="staticEmail2" class="sr-only">
-								Email
-							</label>
-							<input
-								type="email"
-								class="form-control"
-								id="inputPassword2"
-								placeholder="Email"
-								name="email"
-								onChange={this.handleInputChange}
-							/>
-						</div>
-						<div class="form-group mx-sm-3 mb-2">
-							<label for="inputPassword2" class="sr-only">
-								Password
-							</label>
-							<input
-								type="password"
-								class="form-control"
-								id="inputPassword2"
-								placeholder="Password"
-								name="password"
-								onChange={this.handleInputChange}
-							/>
-						</div>
-						<button type="submit" class="btn btn-primary mb-2">
-							Submit
-						</button>
-					</form>
-
-					{/* <RegisterPage /> */}
+						{/* <RegisterPage /> */}
+					</div>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
 }
 
