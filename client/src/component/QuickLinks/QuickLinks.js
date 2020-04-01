@@ -66,23 +66,17 @@ class QuickLinks extends Component {
           </a>
         </li>
         <li>
-          <a className="nav-link" href="#">
-            <i className="fa fa-child"></i> Profile
-          </a>
-        </li>
-        <li>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="discover">
           <i className="fa  fa-users"></i> Discover
           </a>
         </li>
         <li>
+          <a href="/news" id="scrapeArticlesButton" className="nav-link">
+            <i className="fa fa-tv"></i> News
 
-          
-          <a to="/News" id="scrapeArticlesButton" className="nav-link">
-            <i className="fa fa-github"></i> News
+      
           </a>
         </li>
-  
         <li>
           <a className="nav-link" href="#">
             <i className="fa fa-address-card"></i> About Us

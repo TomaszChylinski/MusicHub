@@ -1,6 +1,7 @@
 import React from "react";
 import "./Discover.css";
 import * as $ from "axios";
+import QuickLinks from "../QuickLinks";
 
 class discover extends React.Component {
   constructor(props) {
@@ -21,22 +22,26 @@ class discover extends React.Component {
 
   renderNewFriends() {
     return this.state.users.map((item, index) => {
-      const { firstName, lastName, image,friendStatus } = item; //destructuring
+      const { firstName, lastName, image, friendStatus } = item; //destructuring
       return (
-        <div className="col-sm-6">
-        <div className="card">
-          <div className="card-body">
-            <img
-              className="card-img-top"
-              src={image}
-              alt="Card image cap"
-            />
-            <p className="card-text">{firstName} {lastName}</p>
-            <a href="#" className="btn btn-primary">
-              Friend Request
-            </a>
+        <div class="col-md-4 port-imgs">
+          <img src={image} />
+        
+        
+          <div
+            className="artistName"
+          >
+            {`${firstName}  ${lastName}`}
           </div>
-        </div>
+
+
+
+          <div className="artistName">
+            <button className="">Follow</button>
+          </div>
+
+
+
         </div>
       );
     });
@@ -44,18 +49,22 @@ class discover extends React.Component {
 
   render() {
     return (
+
       <div className="container">
         <div className="row">
-          <div className="col-sm-12">Find Friends</div>
-        </div>
-        <hr className="hr-line"></hr>
-
-        <div className="row">
-
-            {this.renderNewFriends()}
+          <div className="newsTitle col-sm-12">
+            Stay up to date with MusicHub
           </div>
         </div>
 
+        <div className="row">
+          <div className="col-sm-2">
+            <QuickLinks />
+          </div>
+
+          {this.renderNewFriends()}
+        </div>
+      </div>
     );
   }
 }

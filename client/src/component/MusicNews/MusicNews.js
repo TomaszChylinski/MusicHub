@@ -1,7 +1,7 @@
 import React from "react";
 import "./MusicNews.css";
 import * as $ from "axios";
-
+import QuickLinks from "../QuickLinks";
 class MusicNews extends React.Component {
   constructor(props) {
     super(props);
@@ -25,16 +25,28 @@ class MusicNews extends React.Component {
     return this.state.news.map((news, index) => {
       const { title, link, image } = news; //destructuring
       return (
-        <div className="col-sm-6">
-          <div className="card">
-            <div className="card-body">
-              <img className="card-img-top" src={image} alt="Card image cap" />
-              <p className="card-text">{this.state.title}</p>
-              <a href={link} className="btn btn-primary">
-                {title}
-              </a>
+        // <div className="col-sm-4">
+        //   <div className="card">
+        //     <div className="card-body">
+        //       <img className="card-img-top" src={image} alt="Card image cap" />
+        //       <p className="card-text">{this.state.title}</p>
+        //       <a href={link} className="btn btn-primary">
+        //         {title}
+        //       </a>
+        //     </div>
+        //   </div>
+        // </div>
+
+        <div class="col-md-4 port-imgs">
+          <a target="_blank" href={`https://www.billboard.com${link}`}>
+            <img src={image} />
+            <div
+              className="articleTitle
+            "
+            >
+              {title}
             </div>
-          </div>
+          </a>
         </div>
       );
     });
@@ -44,11 +56,18 @@ class MusicNews extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-12">Stay up to date with MusicHub</div>
+          <div className="newsTitle col-sm-12">
+            Stay up to date with MusicHub
+          </div>
         </div>
-        <hr className="hr-line"></hr>
 
-        <div className="row">{this.renderTableData()}</div>
+        <div className="row">
+          <div className="col-sm-2">
+            <QuickLinks />
+          </div>
+
+          {this.renderTableData()}
+        </div>
       </div>
     );
   }

@@ -9,7 +9,7 @@ const Navigation = () => (
       <div className="navbar container">
         <div className="row">
           <div className="col-md-2">
-            <span className="navbar-brand mb-1 h1">MusicHub</span>
+            <a href="./home" className="navbar-brand mb-1 h1">MusicHub</a>
           </div>
         </div>
         <div className="row">
