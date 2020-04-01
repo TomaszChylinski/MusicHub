@@ -61,53 +61,49 @@ class Login extends Component {
 		});
 	}
 
-	render() {
-		// NOTE: I use data-attributes for easier E2E testing
-		// but you don't need to target those (any css-selector will work)
-		if (this.state.isLoggedIn) {
-			return <Redirect to={{ pathname: '/home' }} />;
-		} else {
-			return (
-				<div className="container">
-					<div className="login-form">
-						<form onSubmit={this.handleSubmit}>
-							<div class="form-group mb-2">
-								<label for="staticEmail2" class="sr-only">
-									Email
-								</label>
-								<input
-									type="email"
-									class="form-control"
-									id="inputPassword2"
-									placeholder="Email"
-									name="email"
-									onChange={this.handleInputChange}
-								/>
-							</div>
-							<div class="form-group mx-sm-3 mb-2">
-								<label for="inputPassword2" class="sr-only">
-									Password
-								</label>
-								<input
-									type="password"
-									class="form-control"
-									id="inputPassword2"
-									placeholder="Password"
-									name="password"
-									onChange={this.handleInputChange}
-								/>
-							</div>
-							<button href type="submit" class="btn btn-primary mb-2">
-								Submit
-							</button>
-						</form>
 
-						{/* <RegisterPage /> */}
-					</div>
-				</div>
-			);
-		}
-	}
+  render() {
+    // NOTE: I use data-attributes for easier E2E testing
+    // but you don't need to target those (any css-selector will work)
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <form onSubmit={this.handleSubmit}>
+
+    <ul>
+      <li>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputPassword2"
+                    placeholder="Email"
+                    name="email"
+                    onChange={this.handleInputChange}
+                  />
+        </li>
+        <li>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword2"
+                    placeholder="Password"
+                    name="password"
+                    onChange={this.handleInputChange}
+                  />
+        </li>
+        <li>
+                <button  type="submit" class="btn btn-submit mb-2">
+                  Submit
+                </button>
+                </li>
+
+                </ul> 
+        </form>
+      );
+    }
+  }
+
 }
 
 export default Login;

@@ -1,28 +1,54 @@
+.regLeft {
+  background-image: url(../Assets/images/boy-984293__340.jpg);
+  background-repeat: repeat-y;
+
+    background-color: lightgray;
+  
+}
 
 
- input{
+.regCenter{
+  float: center;
+}
+
+.regRight{
+  float:right;
+  background-color: lightgray;
+}
+
+
+
+.regDiv {
+  margin-top: 2%;
+}
+
+input {
   border-radius: 10px;
   width: 30%;
   height: 5%;
   font-size: 20px;
 }
 
-form button{
+form button {
   border-radius: 10px;
   width: 30%;
   height: 30px;
 }
 
-
-.form-control{
+.form-control {
   height: 35px;
 }
 
-.register-form{
+.register-form {
   margin-top: 5%;
-  background: #E8E8E8;
+  background: #e8e8e8;
 }
 
-.register-form button{
-margin-bottom: 4%;
+.register-form button {
+  margin-bottom: 4%;
+}
+
+.regbtn {
+  color: white !important;
+  background-color: #232f3e;
 }
