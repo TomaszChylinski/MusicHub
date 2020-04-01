@@ -1,51 +1,47 @@
-
-.userIcon{
+.userIcon {
   margin-left: 20px;
 }
 
-.postInput{
+.postInput {
   margin-left: 10px;
 }
-.addPostBtn{
+.addPostBtn {
   margin-left: 10px;
 
   background-color: lightgray;
 }
 
-
-
+.homeBtn {
+  width: 50px;
+  font-family: bold;
+  background-color: #232f3e;
+  color: white;
+  border-radius: 4px;
+}
 
 .container {
   background-color: white;
-
 }
 ul {
   list-style-type: none;
 }
 
-
-.homeForm{
-    border-style: groove;
-    margin-right: -15px;
-
-
-  
+.homeForm {
+  border-style: groove;
 }
 
-.home-col{
-    margin-top: 2%;
+.home-col {
+  margin-top: 2%;
 }
 
-
-.home-timeline{
-border-style: groove;
-margin-top: 4%;
+.home-timeline {
+  border-style: groove;
+  margin-top: 4%;
 }
 
-
-.postedStatus{
+.postedStatus {
   background-color: lightgray;
-  color: #232f3e ;
+  color: #232f3e;
   font-weight: bold;
   margin: 2%;
   border-style: solid;

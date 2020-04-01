@@ -72,10 +72,10 @@ class Home extends React.Component {
                       onChange={this.handleChange}
                     />
                   </li>
-                  <li className="addPostBtn">
-                    <button className="btn">
-                      <i className="fa fa-plus"></i>
-                    </button>
+
+                  <li className="">
+    
+                <button className="homeBtn">+</button>
                   </li>
                 </ul>
               </form>

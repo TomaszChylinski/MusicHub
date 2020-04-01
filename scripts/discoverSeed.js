@@ -9,7 +9,7 @@ const discoverSeed = [
   {
     firstName: "Aaron",
     lastName: "Wilson",
-    userName: "WillyAyo",
+    username: "WillyAyo",
     email: "aaaron.w@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -19,7 +19,7 @@ const discoverSeed = [
   {
     firstName: "Mace",
     lastName: "Marut",
-    userName: "mace-money",
+    username: "mace-money",
     email: "mace@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -29,7 +29,7 @@ const discoverSeed = [
   {
     firstName: "Adrian",
     lastName: "Zygo",
-    userName: "Adrain",
+    username: "Adrain",
     email: "adrain@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -39,7 +39,7 @@ const discoverSeed = [
   {
     firstName: "Jeff",
     lastName: "Miller",
-    userName: "JeffM",
+    username: "JeffM",
     email: "jeffw@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -49,7 +49,7 @@ const discoverSeed = [
   {
     firstName: "Nicole",
     lastName: "White",
-    userName: "Nicole",
+    username: "Nicole",
     email: "nicole@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -59,7 +59,7 @@ const discoverSeed = [
   {
     firstName: "Jessica",
     lastName: "Brown",
-    userName: "Jess",
+    username: "Jess",
     email: "jessica@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -69,7 +69,7 @@ const discoverSeed = [
   {
     firstName: "Richard",
     lastName: "Gray",
-    userName: "Richard",
+    username: "Richard",
     email: "richard@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -79,7 +79,7 @@ const discoverSeed = [
   {
     firstName: "James",
     lastName: "Zimmer",
-    userName: "ZimJ",
+    username: "ZimJ",
     email: "james@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -89,7 +89,7 @@ const discoverSeed = [
   {
     firstName: "Janet",
     lastName: "Benties",
-    userName: "JBenito",
+    username: "JBenito",
     email: "janet@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -99,7 +99,7 @@ const discoverSeed = [
   {
     firstName: "Ricardo",
     lastName: "Yu",
-    userName: "YUR",
+    username: "YUR",
     email: "ricardo@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -109,7 +109,7 @@ const discoverSeed = [
   {
     firstName: "Michael",
     lastName: "Aubrey",
-    userName: "AubRey",
+    username: "AubRey",
     email: "aubrey@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -119,7 +119,7 @@ const discoverSeed = [
   {
     firstName: "Maggy",
     lastName: "Wang",
-    userName: "Maggy",
+    username: "Maggy",
     email: "maggy@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -129,7 +129,7 @@ const discoverSeed = [
   {
     firstName: "Karol",
     lastName: "Silver",
-    userName: "SilverKarol",
+    username: "SilverKarol",
     email: "karol@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -139,7 +139,7 @@ const discoverSeed = [
   {
     firstName: "Tamara",
     lastName: "Penny",
-    userName: "PennyT",
+    username: "PennyT",
     email: "tamara@yahoo.com",
     password: "12345",
     friendStatus: false,
@@ -148,11 +148,11 @@ const discoverSeed = [
   }
 ];
 
-db.users
+db.Users
   .remove({})
-  .then(() => db.users.insertMany(discoverSeed))
+  .then(() => db.Users.insertMany(discoverSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result + " records inserted!");
     process.exit(0);
   })
   .catch(err => {
