@@ -26,9 +26,9 @@ class RegisterPage extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    if (!this.state.username && this.state.password) {
+    if (this.state.username && this.state.password) {
       this.setState({
-        redirectTo: "/home"
+        redirectTo: "/login"
       });
     }
 
@@ -56,7 +56,7 @@ class RegisterPage extends Component {
       url: "http://localhost:3001/api/users",
       data
     }).then(res => {
-      console.log(res);
+      console.log("show me this response ",res);
     });
   }
 
