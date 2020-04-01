@@ -37,7 +37,7 @@ const userSchema = new Schema(
 		image:{
 			type:String,
 			require: false
-		}
+		},
 
 		skills: [
 			{
