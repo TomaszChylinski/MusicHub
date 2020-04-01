@@ -78,8 +78,8 @@ class QuickLinks extends Component {
           </a>
         </li>
         <li>
-          <a className="nav-link" href="/aboutus">
-            <i className="fa fa-address-card"></i> About Us
+          <a className="nav-link" href="/contactus">
+            <i className="fa fa-address-card"></i> Contact Us
           </a>
         </li>
       </ul>
