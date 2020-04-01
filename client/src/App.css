@@ -2,9 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.appBody{
+  margin-top: 3%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,16 +12,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 html,
 body,
@@ -30,7 +20,6 @@ body,
 #app > div {
   /* Full height */
   height: 100%;
-  background-image: url("component//Assets/images/music_background.jpg");
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
