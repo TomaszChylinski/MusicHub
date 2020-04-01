@@ -1,11 +1,14 @@
-.container {
-  color: #0070bf;
-  /* opacity: 0.2; */
+
+ 
+ 
+li { 
+font-size: 2pxs;
+ display: inline-flex;
 }
 
  input{
   border-radius: 10px;
-  width: 30%;
+  width: 10%;
   height: 5%;
   font-size: 20px;
 }
@@ -16,15 +19,17 @@ form button{
   height: 30px;
 }
 
-.login-form {
-  float: right;
 
+.form-control{
+ width: 80% !important;
 }
 
-.userName {
-  margin-right: 1%;
+
+td{
+  color: white;
 }
 
-.password {
-  margin-right: 1%;
+.btn-submit{
+  background-color: #232f3e;
+  color: white;
 }

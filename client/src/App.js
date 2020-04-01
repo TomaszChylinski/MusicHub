@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navigation from "./component/Navigation";
-import Login from "./component/Login";
 import Register from './component/Register';
 
 import Home from "./component/Home";
@@ -19,13 +18,13 @@ class App extends Component {
         <div className="container-fluid mainContainer">
           <Navigation />
           <Switch>
+            <div className= "appBody"> 
       			<Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/discover" component={Discover} />
             <Route exact path="/news" component={MusicNews} />
-
+            </div>
 
           </Switch>
         </div>

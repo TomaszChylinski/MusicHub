@@ -3,6 +3,7 @@ import "./Home.css";
 import QuickLinks from '../QuickLinks';
 import * as $ from 'axios';
 
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,13 @@ class Home extends React.Component {
       .then((result) => {
         this.setState({ status: result.data })
         // console.log("log id", result.data.successful._id)
+      }
+      )
+
+
+      $.get('/api/users')
+      .then((result) => {
+        this.setState({ status: result.data })
       }
       )
   }
@@ -63,6 +71,7 @@ class Home extends React.Component {
 
   render() {
     return (
+
       <div className="container">
         <div className="row">
           <div className="home-col col-sm-2">
