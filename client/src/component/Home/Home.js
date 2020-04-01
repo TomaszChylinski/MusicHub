@@ -62,13 +62,6 @@ class Home extends React.Component {
       })
   }
 
-
-  // this.setState({
-  //   newStatus: '',
-  //   status: [...this.state.status, this.state.newStatus]
-  // });
-
-
   render() {
     return (
 
