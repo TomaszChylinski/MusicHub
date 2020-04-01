@@ -30,14 +30,14 @@ const userSchema = new Schema(
 			required: true
 		},
 
-		friendStatus:{
-			type:Boolean,
+		friendStatus: {
+			type: Boolean,
 			required: false
 		},
-		image:{
-			type:String,
+		image: {
+			type: String,
 			require: false
-		}
+		},
 
 		skills: [
 			{
@@ -45,7 +45,6 @@ const userSchema = new Schema(
 				ref: 'Skills'
 			}
 		]
-
 	},
 	{
 		timestamps: true
