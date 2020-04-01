@@ -26,11 +26,13 @@ class RegisterPage extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
-		if (!this.state.username && this.state.password) {
-			this.setState({
-				redirectTo: '/home'
-			});
-		}
+
+    if (this.state.username && this.state.password) {
+      this.setState({
+        redirectTo: "/login"
+      });
+    }
+
 
 		if (!this.state.username) {
 			return this.setState({ error: 'Username is required' });
@@ -50,15 +52,17 @@ class RegisterPage extends Component {
 			password: this.state.password
 		};
 
-		// api call
-		axios({
-			method: 'post',
-			url: 'http://localhost:3001/api/users',
-			data
-		}).then(res => {
-			console.log(res);
-		});
-	}
+
+    // api call
+    axios({
+      method: "post",
+      url: "http://localhost:3001/api/users",
+      data
+    }).then(res => {
+      console.log("show me this response ",res);
+    });
+  }
+
 
 	handleInputChange(evt) {
 		this.setState({
