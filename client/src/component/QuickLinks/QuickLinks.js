@@ -57,11 +57,11 @@ class QuickLinks extends Component {
         <ul className="list-group">
         <li>
           <a className="nav-link" href="#">
-            <i className="fa fa-user"></i> Branford
+            <i className="fa fa-user"></i> Branford Shaw
           </a>
         </li>
         <li>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/home">
             <i className="fa fa-home"></i> Home
           </a>
         </li>
@@ -78,7 +78,7 @@ class QuickLinks extends Component {
           </a>
         </li>
         <li>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/aboutus">
             <i className="fa fa-address-card"></i> About Us
           </a>
         </li>

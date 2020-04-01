@@ -9,6 +9,7 @@ import Home from "./component/Home";
 import Profile from "./component/Profile";
 import Discover from "./component/Discover";
 import MusicNews from "./component/MusicNews"
+import AboutUs from "./component/AboutUs"
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/discover" component={Discover} />
             <Route exact path="/news" component={MusicNews} />
+            <Route exact path="/aboutus" component={AboutUs} />
             </div>
 
           </Switch>
