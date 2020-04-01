@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 /**
@@ -8,27 +7,30 @@ const Schema = mongoose.Schema;
 const postSchema = Schema(
 	{
 		title: String,
+		caption: String,
 		image: String,
+		video: String,
 		author: {
 			type: Schema.Types.ObjectId,
-			ref: 'Users'
-		},
-		likes: [
-			{
-				type: Schema.Types.ObjectId,
-				ref: 'Likes'
-			}
-		],
-		comments: [
-			{
-				type: Schema.Types.ObjectId,
-				ref: 'Comments'
-			}
-		]
+			ref: 'Users',
+			required: true
+		}
+		// likes: [
+		// 	{
+		// 		type: Schema.Types.ObjectId,
+		// 		ref: 'Likes'
+		// 	}
+		// ],
+		// comments: [
+		// 	{
+		// 		type: Schema.Types.ObjectId,
+		// 		ref: 'Comments'
+		// 	}
+		// ]
 	},
 	{
 		timestamps: true
 	}
 );
 
-export default mongoose.model('Posts', postSchema);
+module.exports = mongoose.model('Posts', postSchema);

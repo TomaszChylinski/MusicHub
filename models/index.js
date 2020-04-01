@@ -5,5 +5,6 @@ module.exports = {
 	discover: require('./Discover'),
 	news: require('./MusicNews'),
 	newSkill: require('./UserSkills'),
-	Follow: require('./Follow')
+	Follow: require('./Follow'),
+	Posts: require('./Posts')
 };

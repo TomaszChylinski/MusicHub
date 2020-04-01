@@ -30,10 +30,10 @@ const userSchema = new Schema(
 			required: true
 		},
 
-		friendStatus: {
-			type: Boolean,
-			required: false
-		},
+		// friendStatus: {
+		// 	type: Boolean,
+		// 	required: false
+		// },
 		image: {
 			type: String,
 			require: false

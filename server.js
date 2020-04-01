@@ -58,6 +58,7 @@ require('./controller/user-skills-controller')(app);
 require('./controller/follow-controller')(app);
 require('./controller/status-controller')(app);
 require('./controller/musicnews-controller')(app);
+require('./controller/post-controller')(app);
 
 // $('#scrapeArticlesButton').on("click", function(event) {
 app.get('/news', function(req, res) {
