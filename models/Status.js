@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const statusSchema = new Schema({
 	status: {
-		type: String,
+		type: String
 	},
 	date: {
-		type:Date,
+		type: Date,
 		default: Date.now
 	}
 });
