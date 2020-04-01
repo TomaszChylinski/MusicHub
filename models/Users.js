@@ -12,7 +12,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true
 		},
-		userName: {
+		username: {
 			type: String,
 			required: true,
 			trim: true,
@@ -29,6 +29,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true
 		},
+
 		friendStatus:{
 			type:Boolean,
 			required: false
@@ -37,6 +38,14 @@ const userSchema = new Schema(
 			type:String,
 			require: false
 		}
+
+		skills: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: 'Skills'
+			}
+		]
+
 	},
 	{
 		timestamps: true

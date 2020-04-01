@@ -1,7 +1,11 @@
 module.exports = {
-	users: require('./Users'),
-	skills: require('./Skills'),
+
+	Users: require('./Users'),
+	Skills: require('./Skills'),
 	status: require('./Status'),
 	discover: require('./Discover'),
 	news: require('./MusicNews'),
+  	newSkill: require('./UserSkills'),
+
+
 };

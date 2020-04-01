@@ -1,13 +1,18 @@
+
 // require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
-const app = express();
 const logger = require("morgan");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
+// Requiring passport as we've configured it
+var passport = require('./config/passport');
+
 const cors = require('cors');
+
+const app = express();
 app.use(cors());
 
 
@@ -16,12 +21,23 @@ var db = require("./models")
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
+} else {
+	app.use(express.static('public'));
 }
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+	session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 const mongoose = require('mongoose');
 const MONGODB_URI =
@@ -35,10 +51,14 @@ mongoose
 		console.log(`Error connecting to mongoDB: ${err}`);
 	});
 
+
 // Define API routes here
 require('./controller/discover')(app);
 require('./controller/users')(app);
 require('./controller/skills')(app);
+require('./controller/user-skills')(app);
+
+
 require('./controller/status')(app);
 require('./controller/musicnews')(app);
 
@@ -76,6 +96,7 @@ app.get("/news", function (req, res) {
 
 // Send every other request to the React app
 // Define any API routes before this runs
+
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, './client/build/index.html'));
 });

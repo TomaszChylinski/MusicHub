@@ -1,8 +1,11 @@
-import React, { Component } from "react";
-import "./Login.css";
-import RegisterPage from "../Register";
+import './Login.css';
+
+import React, { Component } from 'react';
+
+import axios from 'axios';
 
 class Login extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -89,6 +92,7 @@ class Login extends Component {
             
     );
   }
+
 }
 
 export default Login;

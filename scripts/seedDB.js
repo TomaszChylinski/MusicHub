@@ -69,9 +69,8 @@ const skillSeed = [
 	{ skill: 'zither' }
 ];
 
-db.skills
-	.remove({})
-	.then(() => db.skills.insertMany(skillSeed))
+db.Skills.remove({})
+	.then(() => db.Skills.insertMany(skillSeed))
 	.then(data => {
 		console.log(data + ' records inserted!');
 		process.exit(0);
