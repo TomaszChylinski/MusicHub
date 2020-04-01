@@ -1,13 +1,13 @@
 import React from "react";
 import "./Home.css";
-import QuickLinks from '../QuickLinks';
-import * as $ from 'axios';
+import QuickLinks from "../QuickLinks";
+import * as $ from "axios";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newStatus: '',
+      newStatus: "",
       status: []
     };
 
@@ -15,14 +15,12 @@ class Home extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-
-  componentDidMount() { // when mounted this will be populated and component will be rerendered 
-    $.get('/api/status')
-      .then((result) => {
-        this.setState({ status: result.data })
-        // console.log("log id", result.data.successful._id)
-      }
-      )
+  componentDidMount() {
+    // when mounted this will be populated and component will be rerendered
+    $.get("/api/status").then(result => {
+      this.setState({ status: result.data });
+      // console.log("log id", result.data.successful._id)
+    });
   }
 
   // const {status} = this.state.status
@@ -31,35 +29,25 @@ class Home extends React.Component {
     console.log(event.target.value);
     this.setState({
       newStatus: event.target.value
-    })
+    });
   }
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault();
-    $.post('api/status', { status: this.state.newStatus })
-      .then((response) => {
-        console.log("results from app.js NEW STATUS", response)
-        const newPost = response.data.successful;
+    $.post("api/status", { status: this.state.newStatus }).then(response => {
+      console.log("results from app.js NEW STATUS", response);
+      const newPost = response.data.successful;
 
-        this.setState(previousState => {
-          console.log("Show new post 2 ", newPost)
-          console.log("show previous state  ", previousState)
-          return {
-           
-            ...previousState,
-            status: [...previousState.status, newPost]
-          }
-          
-        });
-      })
-  }
-
-
-  // this.setState({
-  //   newStatus: '',
-  //   status: [...this.state.status, this.state.newStatus]
-  // });
-
+      this.setState(previousState => {
+        console.log("Show new post 2 ", newPost);
+        console.log("show previous state  ", previousState);
+        return {
+          ...previousState,
+          status: [...previousState.status, newPost]
+        };
+      });
+    });
+  };
 
   render() {
     return (
@@ -82,7 +70,8 @@ class Home extends React.Component {
                     type="text"
                     className="form-control input-sm"
                     placeholder="Add a post"
-                    value={this.state.newStatus} onChange={this.handleChange}
+                    value={this.state.newStatus}
+                    onChange={this.handleChange}
                   />
                 </div>
                 <button className="btn btn-primary mb-2">
@@ -92,12 +81,13 @@ class Home extends React.Component {
             </div>
             {console.log("show status in return ", this.state.status)}
 
-            <div className="home-timeline">{this.state.status.map((item) => <p key={item._id}> {item.status}  </p>)}</div>
-
+            <div className="home-timeline">
+              {this.state.status.map(item => (
+                <p key={item._id}> {item.status} </p>
+              ))}
+            </div>
           </div>
-          <div className="home-col col-sm-2">Recommended
-
-          </div>
+          <div className="home-col col-sm-2">Recommended</div>
         </div>
 
         <div className="row">

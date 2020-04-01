@@ -56,7 +56,7 @@ class RegisterPage extends Component {
       url: "http://localhost:3001/api/users",
       data
     }).then(res => {
-      console.log("show me this response ",res);
+      console.log("show me this response ", res);
     });
   }
 
@@ -73,78 +73,98 @@ class RegisterPage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className="register-form">
-          <h2>Create Account </h2>
+        <div className="container">
+          <div className="row">
+            <div className="regLeft col-md-8"></div>
 
-          <form onSubmit={this.handleSubmit}>
-            <div class="form-row">
-              <div class="form-group mx-sm-3 mb-2">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputEmail4"
-                  placeholder="First Name"
-                  name="firstName"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div class="form-group mx-sm-3 mb-2">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputPassword4"
-                  placeholder="Last Name"
-                  name="lastName"
-                  onChange={this.handleInputChange}
-                />
-              </div>
+            <div className="regRight col-md-4">
+              <h2>Join Us Today </h2>
+
+              <form onSubmit={this.handleSubmit}>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputEmail4"
+                      placeholder="First Name"
+                      name="firstName"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputPassword4"
+                      placeholder="Last Name"
+                      name="lastName"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      placeholder="Create a username"
+                      name="username"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="inputEmail4"
+                      placeholder="Email"
+                      name="email"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputPassword4"
+                      placeholder="Create a password"
+                      name="password"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputPassword5"
+                      placeholder="Re-enter password"
+                      name="password2"
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <a role="button" type="submit" class="btn regbtn ">
+                      Register
+                    </a>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                placeholder="Create a username"
-                name="username"
-                onChange={this.handleInputChange}
-              />
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail4"
-                  placeholder="Email"
-                  name="email"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div class="form-group col-md-3">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputPassword4"
-                  placeholder="Create a password"
-                  name="password"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div class="form-group col-md-3">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputPassword5"
-                  placeholder="Re-enter password"
-                  name="password2"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Register
-            </button>
-          </form>
+          </div>
+
+
         </div>
       );
     }
