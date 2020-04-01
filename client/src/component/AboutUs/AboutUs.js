@@ -1,5 +1,5 @@
 import React from "react";
-import "./Discover.css";
+import "./AboutUs.css";
 
 import QuickLinks from "../QuickLinks";
 
