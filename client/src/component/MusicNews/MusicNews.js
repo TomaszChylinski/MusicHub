@@ -1,25 +1,29 @@
+
+
 import React from "react";
 import "./MusicNews.css";
 import * as $ from "axios";
 import QuickLinks from "../QuickLinks";
+
 class MusicNews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      news: []
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			news: []
+		};
+	}
 
-  componentDidMount() {
-    // when mounted this will be populated and component will be rerendered
+	componentDidMount() {
+		// when mounted this will be populated and component will be rerendered
 
-    $.get("http://localhost:3001/news").then(result => {
-      this.setState({ news: result.data });
-      // console.log("log id", result.data.successful._id)
-      console.log("show status ", result);
-      console.log("show me the users ", this.state.news);
-    });
-  }
+		$.get('http://localhost:3001/news').then(result => {
+			this.setState({ news: result.data });
+			// console.log("log id", result.data.successful._id)
+			console.log('show status ', result);
+			console.log('show me the users ', this.state.news);
+		});
+	}
+
 
   renderTableData() {
     return this.state.news.map((news, index) => {
@@ -71,6 +75,7 @@ class MusicNews extends React.Component {
       </div>
     );
   }
+
 }
 
 export default MusicNews;

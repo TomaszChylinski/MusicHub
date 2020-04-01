@@ -1,30 +1,31 @@
-import "./Register.css";
+import './Register.css';
 
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 class RegisterPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      error: "",
-      redirectTo: null
-    };
+	constructor() {
+		super();
+		this.state = {
+			username: '',
+			password: '',
+			error: '',
+			redirectTo: null
+		};
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.dismissError = this.dismissError.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.dismissError = this.dismissError.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
 
-  dismissError() {
-    this.setState({ error: "" });
-  }
+	dismissError() {
+		this.setState({ error: '' });
+	}
 
-  handleSubmit(evt) {
-    evt.preventDefault();
+	handleSubmit(evt) {
+		evt.preventDefault();
+
 
     if (this.state.username && this.state.password) {
       this.setState({
@@ -32,23 +33,25 @@ class RegisterPage extends Component {
       });
     }
 
-    if (!this.state.username) {
-      return this.setState({ error: "Username is required" });
-    }
 
-    if (!this.state.password) {
-      return this.setState({ error: "Password is required" });
-    }
+		if (!this.state.username) {
+			return this.setState({ error: 'Username is required' });
+		}
 
-    this.setState({ error: "" });
+		if (!this.state.password) {
+			return this.setState({ error: 'Password is required' });
+		}
 
-    const data = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      username: this.state.username,
-      email: this.state.email,
-      password: this.state.password
-    };
+		this.setState({ error: '' });
+
+		const data = {
+			firstName: this.state.firstName,
+			lastName: this.state.lastName,
+			username: this.state.username,
+			email: this.state.email,
+			password: this.state.password
+		};
+
 
     // api call
     axios({
@@ -56,15 +59,17 @@ class RegisterPage extends Component {
       url: "http://localhost:3001/api/users",
       data
     }).then(res => {
+
       console.log("show me this response ", res);
-    });
-  }
 
   handleInputChange(evt) { 
     this.setState({
       [evt.target.name]: evt.target.value
+
     });
   }
+
+
 
   render() {
     // NOTE: I use data-attributes for easier E2E testing
@@ -89,7 +94,13 @@ class RegisterPage extends Component {
                       id="inputEmail4"
                       placeholder="First Name"
                       name="firstName"
-                      onChange={this.handleInputChange}
+                      onChange={this.
+        
+        
+        
+        
+        
+        }
                     />
                   </div>
                 </div>
@@ -169,6 +180,7 @@ class RegisterPage extends Component {
       );
     }
   }
+
 }
 
 export default RegisterPage;

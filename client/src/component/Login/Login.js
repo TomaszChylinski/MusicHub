@@ -1,61 +1,66 @@
-import "./Login.css";
+import './Login.css';
+import Home from '../Home';
 
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Route } from 'react-router-dom';
+
+import axios from 'axios';
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      error: "",
-      isLoggedIn: false,
-      redirectTo: null
-    };
+	constructor() {
+		super();
+		this.state = {
+			username: '',
+			password: '',
+			error: '',
+			isLoggedIn: false,
+			redirectTo: null
+		};
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.dismissError = this.dismissError.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.dismissError = this.dismissError.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
 
-  dismissError() {
-    this.setState({ error: "" });
-  }
+	dismissError() {
+		this.setState({ error: '' });
+	}
 
-  handleSubmit(evt) {
-    evt.preventDefault();
+	handleSubmit(evt) {
+		evt.preventDefault();
 
-    if (!this.state.username && this.state.password) {
-      this.setState({
-        redirectTo: "/home"
-      });
-    }
+		// if (this.state.isLoggedIn) {
+		// 	this.setState({
+		// 		redirectTo: 'http://localhost:3000/home'
+		// 	});
+		// }
 
-    this.setState({ error: "" });
+		this.setState({ error: '' });
 
-    const data = {
-      email: this.state.email,
-      password: this.state.password
-    };
+		const data = {
+			email: this.state.email,
+			password: this.state.password
+		};
 
-    // api call
-    axios({
-      method: "post",
-      url: "http://localhost:3001/api/login",
-      data
-    }).then(res => {
-      // handle unautorized response
-      // redirect to home/main whatever
-    });
-  }
+		// api call
+		axios({
+			method: 'post',
+			url: 'http://localhost:3001/api/login',
+			data
+		}).then(res => {
+			// handle unautorized response
+			// redirect to home/main whatever
+			this.setState({ isLoggedIn: true });
+		});
+	}
 
-  handleInputChange(evt) {
-    this.setState({
-      [evt.target.name]: evt.target.value
-    });
-  }
+	handleInputChange(evt) {
+		this.setState({
+			[evt.target.name]: evt.target.value
+		});
+	}
+
 
   render() {
     // NOTE: I use data-attributes for easier E2E testing
@@ -98,6 +103,7 @@ class Login extends Component {
       );
     }
   }
+
 }
 
 export default Login;

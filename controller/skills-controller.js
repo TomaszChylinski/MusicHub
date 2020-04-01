@@ -1,11 +1,10 @@
 var express = require('express');
 
-var db = require('../models/');
+var db = require('../models');
 
 module.exports = function(router) {
 	router.post('/api/skills', (req, res) => {
-		db.skills
-			.create(req.body)
+		db.Skills.create(req.body)
 			.then(response => {
 				res.json({ successful: response });
 			})
