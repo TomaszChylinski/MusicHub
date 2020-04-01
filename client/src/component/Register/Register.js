@@ -62,6 +62,10 @@ class RegisterPage extends Component {
 
       console.log("show me this response ", res);
 
+  handleInputChange(evt) { 
+    this.setState({
+      [evt.target.name]: evt.target.value
+
     });
   }
 
@@ -90,7 +94,13 @@ class RegisterPage extends Component {
                       id="inputEmail4"
                       placeholder="First Name"
                       name="firstName"
-                      onChange={this.handleInputChange}
+                      onChange={this.
+        
+        
+        
+        
+        
+        }
                     />
                   </div>
                 </div>
