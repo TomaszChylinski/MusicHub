@@ -15,7 +15,9 @@ class aboutUs extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="newsTitle col-sm-12">Contact MusicHub</div>
+          <div className="newsTitle col-sm-12">
+            <h3> Contact Us</h3>
+          </div>
           <hr />
         </div>
 
@@ -26,18 +28,18 @@ class aboutUs extends React.Component {
 
           <div class="col-md-3">
             <span class="et_pb_image_wrap">
-              <img
+              <img className="contactUsImage"
                 src="https://awg2020.org/wp-content/uploads/2018/10/message.png"
                 alt=""
               />
             </span>
 
-            <p>chylinski.t@outlook.com</p>
+            <p>shaw.b@outlook.com</p>
           </div>
 
           <div class="col-md-3">
             <span class="et_pb_image_wrap">
-              <img
+              <img className="contactUsImage"
                 src="https://awg2020.org/wp-content/uploads/2018/10/mapi.png"
                 alt=""
               />
@@ -47,7 +49,7 @@ class aboutUs extends React.Component {
 
           <div class="col-md-3">
             <span class="et_pb_image_wrap">
-              <img
+              <img className="contactUsImg"
                 src="https://awg2020.org/wp-content/uploads/2018/10/teleph.png"
                 alt=""
               />
