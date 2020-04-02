@@ -28,7 +28,9 @@ class Login extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
+
 		if (!this.state.username && this.state.password) {
+
 			this.setState({
 				redirectTo: '/home'
 			});
