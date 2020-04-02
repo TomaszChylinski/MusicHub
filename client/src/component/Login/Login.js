@@ -30,11 +30,11 @@ class Login extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
-		// if (this.state.isLoggedIn) {
-		// 	this.setState({
-		// 		redirectTo: 'http://localhost:3000/home'
-		// 	});
-		// }
+		if (this.state.password && this.state.username) {
+			this.setState({
+				redirectTo: '/home'
+			});
+		}
 
 		this.setState({ error: '' });
 
@@ -46,7 +46,7 @@ class Login extends Component {
 		// api call
 		axios({
 			method: 'post',
-			url: 'http://localhost:3001/api/login',
+			url: '/api/login',
 			data
 		}).then(res => {
 			// handle unautorized response
@@ -61,49 +61,45 @@ class Login extends Component {
 		});
 	}
 
-
-  render() {
-    // NOTE: I use data-attributes for easier E2E testing
-    // but you don't need to target those (any css-selector will work)
-    if (this.state.redirectTo) {
-      return <Redirect to={{ pathname: this.state.redirectTo }} />;
-    } else {
-      return (
-        <form onSubmit={this.handleSubmit}>
-
-    <ul>
-      <li>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="inputPassword2"
-                    placeholder="Email"
-                    name="email"
-                    onChange={this.handleInputChange}
-                  />
-        </li>
-        <li>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="inputPassword2"
-                    placeholder="Password"
-                    name="password"
-                    onChange={this.handleInputChange}
-                  />
-        </li>
-        <li>
-                <button  type="submit" class="btn btn-submit mb-2">
-                  Submit
-                </button>
-                </li>
-
-                </ul> 
-        </form>
-      );
-    }
-  }
-
+	render() {
+		// NOTE: I use data-attributes for easier E2E testing
+		// but you don't need to target those (any css-selector will work)
+		if (this.state.redirectTo) {
+			return <Redirect to={{ pathname: this.state.redirectTo }} />;
+		} else {
+			return (
+				<form onSubmit={this.handleSubmit}>
+					<ul>
+						<li>
+							<input
+								type="email"
+								class="form-control"
+								id="inputPassword2"
+								placeholder="Email"
+								name="email"
+								onChange={this.handleInputChange}
+							/>
+						</li>
+						<li>
+							<input
+								type="password"
+								class="form-control"
+								id="inputPassword2"
+								placeholder="Password"
+								name="password"
+								onChange={this.handleInputChange}
+							/>
+						</li>
+						<li>
+							<button type="submit" class="btn btn-submit mb-2">
+								Submit
+							</button>
+						</li>
+					</ul>
+				</form>
+			);
+		}
+	}
 }
 
 export default Login;
