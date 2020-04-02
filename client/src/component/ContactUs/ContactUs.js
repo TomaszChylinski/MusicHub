@@ -44,7 +44,7 @@ class aboutUs extends React.Component {
 								alt=""
 							/>
 						</span>
-						<p>Hartford, Connecticut</p>
+						<p>Washington, D.C.</p>
 					</div>
 
 					<div class="col-md-3">
@@ -55,7 +55,7 @@ class aboutUs extends React.Component {
 								alt=""
 							/>
 						</span>
-						<p>860.461.2445</p>
+						<p>(615) 715-5862</p>
 					</div>
 				</div>
 			</div>
