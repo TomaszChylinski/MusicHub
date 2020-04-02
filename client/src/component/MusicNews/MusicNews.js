@@ -16,7 +16,7 @@ class MusicNews extends React.Component {
 	componentDidMount() {
 		// when mounted this will be populated and component will be rerendered
 
-		$.get('http://localhost:3001/news').then(result => {
+		$.get('/news').then(result => {
 			this.setState({ news: result.data });
 			// console.log("log id", result.data.successful._id)
 			console.log('show status ', result);
