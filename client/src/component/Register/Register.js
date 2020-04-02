@@ -53,7 +53,7 @@ class RegisterPage extends Component {
 		// api call
 		axios({
 			method: 'post',
-			url: 'http://localhost:3001/api/users',
+			url: '/api/users',
 			data
 		}).then(res => {
 			console.log('show me this response ', res);
