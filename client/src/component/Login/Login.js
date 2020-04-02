@@ -44,7 +44,7 @@ class Login extends Component {
 		// api call
 		axios({
 			method: 'post',
-			url: 'http://localhost:3001/api/login',
+			url: '/api/login',
 			data
 		}).then(res => {
 			// handle unautorized response

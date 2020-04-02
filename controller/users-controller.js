@@ -26,7 +26,7 @@ module.exports = function(router) {
 		console.log(req.user);
 
 		// res.json(req.user);
-		res.redirect('/home');
+		// res.redirect('/home');
 	});
 
 	router.delete('/api/users/:id', (req, res) => {
