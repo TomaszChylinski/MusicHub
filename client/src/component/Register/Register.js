@@ -53,7 +53,9 @@ class RegisterPage extends Component {
 		// api call
 		axios({
 			method: 'post',
+
 			url: '/api/users',
+
 			data
 		}).then(res => {
 			console.log('show me this response ', res);

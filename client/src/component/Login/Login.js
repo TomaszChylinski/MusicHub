@@ -1,9 +1,7 @@
 import './Login.css';
-import Home from '../Home';
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { BrowserRouter as Route } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -30,7 +28,9 @@ class Login extends Component {
 	handleSubmit(evt) {
 		evt.preventDefault();
 
-		if (this.state.password && this.state.username) {
+
+		if (!this.state.username && this.state.password) {
+
 			this.setState({
 				redirectTo: '/home'
 			});
